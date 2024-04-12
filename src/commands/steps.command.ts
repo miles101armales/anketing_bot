@@ -290,7 +290,7 @@ export class StepsCommand extends Command {
 			`\n\nСпасибо за опрос!`
 		)
 		
-		this.bot.telegram.sendVideoNote(ctx.chat?.id as number, { source: './src/videos/video1.mp4' }, {
+		this.bot.telegram.sendVideoNote(ctx.chat?.id as number, { source: './src/videos/video1.MP4' }, {
 			reply_markup: {
 				inline_keyboard: [
 					[{ text: 'Начать заново 😊', callback_data: 'phone' }]

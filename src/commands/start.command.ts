@@ -13,7 +13,7 @@ export class StartCommand extends Command {
 		try {
 			this.bot.start((ctx: IBotContext) => {
 				if(ctx.chat) {
-					ctx.telegram.sendVideoNote(ctx.chat.id, { source: './src/videos/video.mp4' }, {
+					ctx.telegram.sendVideoNote(ctx.chat.id, { source: './src/videos/video.MP4' }, {
 						reply_markup: {
 							inline_keyboard: [
 								[{ text: 'Продолжить путь 😊', callback_data: 'phone' }]
