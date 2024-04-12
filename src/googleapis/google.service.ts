@@ -2,9 +2,11 @@ import { OAuth2Client } from 'google-auth-library';
 import { ICredentials } from './credentials.interface';
 import { google } from 'googleapis';
 import * as fs from 'fs';
+import { ConfigService } from '../config/config.service';
 
 export class GoogleService {
 	client: OAuth2Client = new OAuth2Client;
+	configService: ConfigService = new ConfigService();
 	spreadsheetId: string = '';
 	sheetTitle: string = 'Лист1';
 	constructor() {
@@ -43,7 +45,7 @@ export class GoogleService {
 	
 			if (Array.isArray(data) && data.length > 0) {
 				const response = await sheets.spreadsheets.values.append({
-					spreadsheetId: '1uAoqa84OIzqdbua_L_C802U_9BYfRpCyp0D96reZmlA',
+					spreadsheetId: this.configService.get('SPREADSHEET'),
 					range: this.sheetTitle,
 					valueInputOption: 'RAW',
 					requestBody: {
